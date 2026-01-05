@@ -9,7 +9,6 @@ public class UserEntiy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
 
     @Column(unique = true)

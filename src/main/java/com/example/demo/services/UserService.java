@@ -3,8 +3,11 @@ package com.example.demo.services;
 import com.example.demo.model.UserEntiy;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -26,5 +29,9 @@ public class UserService {
         user.setPassword(encryptedPassword);
 
         return userRepository.save(user);
+    }
+
+    public List<UserEntiy> userList(){
+        return userRepository.findAll();
     }
 }

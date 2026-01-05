@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+    public ResponseEntity login(@RequestBody LoginRequest request) {
 
         UserEntiy user = userRepository
                 .findByEmail(request.getEmail())
@@ -68,6 +68,10 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/userList")
+    public ResponseEntity userList(){
+        return ResponseEntity.ok(userService.userList());
+    }
 
     @GetMapping("/profile")
     public ResponseEntity profile() {
